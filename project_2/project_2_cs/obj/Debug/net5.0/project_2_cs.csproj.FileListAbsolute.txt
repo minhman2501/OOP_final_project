@@ -1,0 +1,16 @@
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\project_2_cs.exe
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\project_2_cs.deps.json
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\project_2_cs.runtimeconfig.json
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\project_2_cs.runtimeconfig.dev.json
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\project_2_cs.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\ref\project_2_cs.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\bin\Debug\net5.0\project_2_cs.pdb
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.csproj.AssemblyReference.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.GeneratedMSBuildEditorConfig.editorconfig
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.AssemblyInfoInputs.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.AssemblyInfo.cs
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.csproj.CoreCompileInputs.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\ref\project_2_cs.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.pdb
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_2\project_2_cs\obj\Debug\net5.0\project_2_cs.genruntimeconfig.cache
