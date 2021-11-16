@@ -7,9 +7,26 @@ namespace project_2_cs
     {
         static void Main(string[] args)
         {
-            Milk mk1 = new Milk("Vinamilk", 5, 4);
-            CoffeeBeans cf1 = new CoffeeBeans("lmao", 5, 3);
-            cf1.ingredient_Info();
+            CaPheSua a = new CaPheSua(new Columbia(50));
+            CaPheDen b = new CaPheDen();
+            BacXiu x = new BacXiu();
+
+
+            Bill bill1 = new Bill();
+            bill1.add(a, b, x);
+
+            Bill bill2 = new Bill();
+            CaPheSua c = new CaPheSua();
+            CaPheDen d = new CaPheDen(new Columbia(30));
+            BacXiu e = new BacXiu();
+            bill2.add(c, d, e);
+
+            CoffeeStore.add_Bill(bill1, bill2);
+
+            // CoffeeStore.info();
+
+            CoffeeStore.drinksRecipe();
+
 
         }
     }

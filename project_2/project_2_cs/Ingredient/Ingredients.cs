@@ -1,56 +1,28 @@
 using System;
 
 public abstract class Ingredient {
-    protected double bPrice;
     protected string name;
-    
-    //De nhung class ke thua khong can phai khai bao
-    protected double extra;
-    
-    //De nhung class ke thua khong can phai khai bao
-    protected double tPrice;
 
-    public string ingredientName {
+    protected string unit;
+    
+    protected double amount;
+    public string ingredient_BrandName {
         get {return this.name;}
         set {this.name = value;}
     }
-    public double ingredient_BasePrice {
-        get {return this.bPrice;}
-        set {this.bPrice = value;}
-    }
+    ~Ingredient() {}
 
-    public double ingredient_extraFee {
-        get {return this.extra;}
-        set {this.extra = value;}
+    public Ingredient(string ingredient_BrandName, double ingredient_Amount, string ingredient_Unit) {
+        this.name = ingredient_BrandName;
+        this.amount = ingredient_Amount;
+        this.unit = ingredient_Unit;
     }
-    public double TruePrice {
-        get { return this.tPrice;}
-    }
-
-    public Ingredient() {}
-
-    public Ingredient(string ingredientName, double basePrice) {
-        this.name = ingredientName;
-        this.bPrice = basePrice;
-    }
-
-    public virtual void ingredient_Input() {
-        Console.Write("Enter the name of the ingredient: ");
-        this.name = Console.ReadLine();
-        Console.Write("Enter the base price of the ingredient: ");
-        this.bPrice = Convert.ToDouble(Console.ReadLine());
-    }
-
-    public void ingredient_Input(string ingredientName, double basePrice) {
-        this.name = ingredientName;
-        this.bPrice = basePrice;
-    }
-
     public virtual void ingredient_Info() {
         Console.WriteLine("Name:" + this.name);
     }
-    ~Ingredient() {}
+    public void adding() {
+        Console.WriteLine(this.type() + ": " + this.amount + this.unit);
+    }
 
-
-    public abstract void calculate_IngredientPrice();
+    protected abstract string type();
 }
