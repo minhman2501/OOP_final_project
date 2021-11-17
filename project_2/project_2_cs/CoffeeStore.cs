@@ -20,8 +20,24 @@ public static class CoffeeStore {
             cList.Add(drink);
         }
     }
+    public static void orderCoffee() {
+        Console.WriteLine("Welcome to the Coffee Store!!!!");
+        while (true) {
+            Bill bill = new Bill();
+            bill.billInput();
+            add_Bill(bill);
+
+            Console.WriteLine("Continue or Stop?:\n 1.Continue\t 2.Stop");
+            int order = Convert.ToInt32(Console.ReadLine());
+            if (order == 2) {
+                info();
+                break;
+            }
+        }
+        
+    }
     public static void info() {
-        Console.WriteLine("Coffee Store INFO");
+        Console.WriteLine("\nCoffee Store INFO");
         Console.WriteLine("*************************");
 
         for (int i = 0; i < bList.Count; i++)
