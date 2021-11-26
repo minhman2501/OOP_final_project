@@ -30,3 +30,19 @@ C:\OnlyCode\.schoolLearn\OOP\Week 05\BaiTap02\bin\Debug\net5.0\BaiTap2.dll
 C:\OnlyCode\.schoolLearn\OOP\Week 05\BaiTap02\bin\Debug\net5.0\ref\BaiTap2.dll
 C:\OnlyCode\.schoolLearn\OOP\Week 05\BaiTap02\bin\Debug\net5.0\BaiTap2.pdb
 C:\OnlyCode\.schoolLearn\OOP\Week 05\BaiTap02\obj\Debug\net5.0\BaiTap2.genruntimeconfig.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\BaiTap2.exe
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\BaiTap2.deps.json
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\BaiTap2.runtimeconfig.json
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\BaiTap2.runtimeconfig.dev.json
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\BaiTap2.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\ref\BaiTap2.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\bin\Debug\net5.0\BaiTap2.pdb
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.csproj.AssemblyReference.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.GeneratedMSBuildEditorConfig.editorconfig
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.AssemblyInfoInputs.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.AssemblyInfo.cs
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.csproj.CoreCompileInputs.cache
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\ref\BaiTap2.dll
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.pdb
+C:\OnlyCode\.schoolLearn\OOP\final_project\project_1\obj\Debug\net5.0\BaiTap2.genruntimeconfig.cache

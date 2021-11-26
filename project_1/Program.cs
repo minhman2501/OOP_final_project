@@ -21,7 +21,12 @@ namespace BaiTap2
             // rec1.calculate();
             // rec1.showInfo();
             Circle cr1 = new Circle(pt1, pt3, 3.5);
-            cr1.showInfo();
+            Triangle tr1 = new Triangle(pt2, pt1, 6.6, 5);
+            Rectangle rec1 = new Rectangle(pt4, pt3, 3.5, 4);
+            Line ln1 = new Line(pt2, pt4, "Red");
+            Graphic.add_Shape(cr1, tr1, ln1, rec1);
+            ln1.getInput(pt3, pt1, "Yellow");
+            Graphic.graphicInfo();
             // rec1.calculate();
             
             

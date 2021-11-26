@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\OnlyCode\\.schoolLearn\\OOP\\Week 05\\BaiTap02\\BaiTap2.csproj": {}
+    "C:\\OnlyCode\\.schoolLearn\\OOP\\final_project\\project_1\\BaiTap2.csproj": {}
   },
   "projects": {
-    "C:\\OnlyCode\\.schoolLearn\\OOP\\Week 05\\BaiTap02\\BaiTap2.csproj": {
+    "C:\\OnlyCode\\.schoolLearn\\OOP\\final_project\\project_1\\BaiTap2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\OnlyCode\\.schoolLearn\\OOP\\Week 05\\BaiTap02\\BaiTap2.csproj",
+        "projectUniqueName": "C:\\OnlyCode\\.schoolLearn\\OOP\\final_project\\project_1\\BaiTap2.csproj",
         "projectName": "BaiTap2",
-        "projectPath": "C:\\OnlyCode\\.schoolLearn\\OOP\\Week 05\\BaiTap02\\BaiTap2.csproj",
+        "projectPath": "C:\\OnlyCode\\.schoolLearn\\OOP\\final_project\\project_1\\BaiTap2.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\OnlyCode\\.schoolLearn\\OOP\\Week 05\\BaiTap02\\obj\\",
+        "outputPath": "C:\\OnlyCode\\.schoolLearn\\OOP\\final_project\\project_1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

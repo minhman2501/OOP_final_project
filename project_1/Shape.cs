@@ -9,7 +9,7 @@ public abstract class Shape {
     protected Point a;
     protected Point b;
 
-    protected string color;
+    protected string color = "Black";
     public string colorShape {
         get { return this.color;}
         set { this.color = value;}
@@ -57,6 +57,7 @@ public abstract class Shape {
         Console.WriteLine("Draw " + this.name);
     }
     public virtual void showInfo() {
+        this.calculate();
         Console.WriteLine("****" + this.name + " value****");
         Console.Write("Point 1:");
         this.a.pointInfo();
@@ -67,7 +68,7 @@ public abstract class Shape {
 
     public abstract void calculate(); 
     public void colorChange() {
-        Console.Write("Enter the color that you want to add: ");
+        Console.Write("Enter the color that you want to add for this" + this.name + ": ");
         this.color = Console.ReadLine();
     }
     public void Move()

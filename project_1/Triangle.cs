@@ -17,6 +17,11 @@ public class Triangle:Shape {
         this.height = triHeight;
         this.name = "Triangle";
     }
+    public Triangle(Point pt1, Point pt2, string shapeColor, double bottomEdge, double triHeight) :base(pt1, pt2, shapeColor) { 
+        this.bEdge = bottomEdge;
+        this.height = triHeight;
+        this.name = "Triangle";
+    }
 
     ~ Triangle() {}
 
@@ -34,6 +39,12 @@ public class Triangle:Shape {
         this.bEdge = bottomEdge;
         this.height = triHeight;
     }
+    public void getInput(Point pt1, Point pt2, string shapeColor, double bottomEdge, double triHeight) {
+        this.name = "Triangle";
+        base.getInput(pt1, pt2, shapeColor);
+        this.bEdge = bottomEdge;
+        this.height = triHeight;
+    }
 
 
     public override void showInfo() {
@@ -44,7 +55,6 @@ public class Triangle:Shape {
     }
 
     public override void calculate() {
-        Console.WriteLine("\n****Calculate the area of the Triangle****");
         this.area = (this.bEdge * this.height)/2;
     }
 }

@@ -20,6 +20,10 @@ public class Circle : Shape
         this.name = "Circle";
         this.rad = circleRadius;
     }
+    public Circle(Point pt1, Point pt2, string shapeColor, double circleRadius) :base(pt1, pt2, shapeColor) { 
+        this.name = "Circle";
+        this.rad = circleRadius;
+    }
     ~ Circle()
     {
     }
@@ -38,7 +42,6 @@ public class Circle : Shape
     public override void showInfo()
     {
         base.showInfo();
-        this.calculate();
         Console.WriteLine("Area: " + Math.Round(this.area, 3));
         this.draw();
     }

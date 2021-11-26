@@ -15,6 +15,11 @@ public class Rectangle:Shape {
         this.width = recWidth;
         this.name = "Rectangle";
     }
+    public Rectangle(Point pt1, Point pt2, string shapeColor, double recLenght, double recWidth) :base(pt1, pt2, shapeColor) { 
+        this.lenght = recLenght;
+        this.width = recWidth;
+        this.name = "Rectangle";
+    }
 
     ~ Rectangle() {}
 
@@ -32,6 +37,12 @@ public class Rectangle:Shape {
         this.lenght = recLenght;
         this.width = recWidth;
     }
+    public void getInput(Point pt1, Point pt2, string shapeColor, double recLenght, double recWidth) {
+        this.name = "Rectangle";
+        base.getInput(pt1, pt2, shapeColor);
+        this.lenght = recLenght;
+        this.width = recWidth;
+    }
 
 
     public override void showInfo() {
@@ -42,7 +53,6 @@ public class Rectangle:Shape {
     }
 
     public override void calculate() {
-        Console.WriteLine("\n****Calculate the area of the Rectangle****");
         this.area = (this.lenght * this.width);
     }
 }

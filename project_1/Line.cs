@@ -13,6 +13,9 @@ public class Line:Shape {
     public Line(Point pt1, Point pt2) :base(pt1, pt2) {
         this.name = "Line";
     }
+    public Line(Point pt1, Point pt2, string shapeColor) :base(pt1, pt2, shapeColor) {
+        this.name = "Line";
+    }
 
     ~ Line() {}
 
@@ -20,16 +23,18 @@ public class Line:Shape {
         this.name = "Line";
         base.getInput();
     }
+    public void getInput(Point pt1, Point pt2, string shapeColor) {
+        this.name = "Line";
+        base.getInput(pt1, pt2, shapeColor);
+    }
 
-
-    public new void showInfo() {
+    public override void showInfo() {
         base.showInfo();
         Console.WriteLine("Line lenght:" + this.length);
         this.draw();
     }
 
     public override void calculate() {
-        Console.WriteLine("\n****Calculate the lenght of the Line****");
         this.length = Math.Sqrt(Math.Pow(this.b.X - this.a.X, 2) + Math.Pow(this.b.Y - this.a.Y, 2));
     }
 }
