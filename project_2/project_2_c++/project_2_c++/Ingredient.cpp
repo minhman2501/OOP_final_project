@@ -4,6 +4,8 @@
 #include <typeinfo>
 
 using namespace std;
+
+
 class Ingredient {
 protected:
 	string name;
@@ -110,6 +112,7 @@ protected:
 	virtual void addDefault() = 0;
 	virtual void calcPrice() 
 	{
+		//t chua tim ra cach ep kieu nhu ben c# a
 		for(Ingredient ing : iList)
 		{
 			if (typeid(ing).name() == "CoffeeBeans")
@@ -125,6 +128,7 @@ public:
 	}
 	Coffee() {};
 
+	//khong them object nhu array parameter nhu ben c# duoc ( dynamic cast)
 	Coffee(CoffeeBeans obj[]) {
 		for (auto &bean : obj) {
 			this->addIngredients(bean);
@@ -146,6 +150,7 @@ public:
 
 class CaPheSua : Coffee {
 protected:
+	//con cai nay k biet tai sao no k nhan object Robusta voi Milk du no la thua ke tu Ingredient
 	void addDefault() {
 		this->addIngredients(new Robusta(20));
 		this->addIngredients(new Milk(20));
@@ -164,6 +169,7 @@ public:
 };
 class CaPheDen : Coffee {
 protected:
+	//cai nay cung vay ne
 	void addDefault() {
 		this->addIngredients(new Robusta(30));
 	}
@@ -181,6 +187,7 @@ public:
 };
 class BacXiu : Coffee {
 protected:
+	//cai nay cung vay ne
 	void addDefault() {
 		this->addIngredients(new Robusta(20));
 		this->addIngredients(new Milk(30));
@@ -252,6 +259,7 @@ public:
 	void billInfo()
 	{
 		cout << "BILL INFO" << "\n*******************" << endl;
+		//con bug cai nay t cung chua kiem ra cach fix 
 		for (Coffee cf : cList)
 		{
 			cf.coffee_Info();
@@ -261,6 +269,7 @@ public:
 		cout << "Total price:" << total << "VND" << endl;
 	}
 	void bill_calcPrice() {
+		//con bug cai nay t cung chua kiem ra cach fix 
 		for (Coffee cf : cList)
 		{
 			total += cf.price();

@@ -1,0 +1,4 @@
+có 1 số vấn đề là
+1. t muốn tách những class ra thành file cpp riêng á mà chưa biết import nó như thế nào
+2. t chưa có làm được cái dynamic cast như bên c#
+3. t k có add những class kế thừa như Robusta, Milk này nọ vào list<Ingredient> của t được dù 2 thằng đó là kế thừa từ Ingredient
