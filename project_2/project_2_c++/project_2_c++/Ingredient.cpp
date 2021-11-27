@@ -2,10 +2,7 @@
 #include <string>
 #include <list>
 #include <typeinfo>
-
 using namespace std;
-
-
 class Ingredient {
 protected:
 	string name;
@@ -65,14 +62,14 @@ public:
 		Ingredient::adding();
 	}
 };
-class Robusta : CoffeeBeans {
+class Robusta : public CoffeeBeans {
 protected:
 	string type() {
 		return "Robusta";
 	}
 public:
 	Robusta(double ingredient_Amount) : CoffeeBeans(ingredient_Amount){
-		this->_price = 3000;
+		this->_price = 0;
 		this->name = type();
 	}
 	void adding()
@@ -81,13 +78,14 @@ public:
 	}
 
 };
-class Columbia : CoffeeBeans {
+class Columbia : public CoffeeBeans {
 protected:
 	string type() {
 		return "Columbia";
 	}
 public:
-	Columbia(double ingredient_Amount) : CoffeeBeans(ingredient_Amount) {
+	Columbia(double ingredient_Amount) : CoffeeBeans(ingredient_Amount) 
+	{
 		this->_price = 5000;
 		this->name = type();
 	}
@@ -95,30 +93,27 @@ public:
 	{
 		CoffeeBeans::adding();
 	}
-	
-
-
 };
 
 class Coffee {
 protected:
 	double cPrice;
 	string name;
-	list <Ingredient> iList;
+	list <Ingredient*> iList;
 	
-	void addIngredients(Ingredient ing) {
+	void addIngredients(Ingredient* ing) {
 		iList.push_back(ing);
 	}
 	virtual void addDefault() = 0;
+	virtual void addMedium() = 0;
 	virtual void calcPrice() 
 	{
-		//t chua tim ra cach ep kieu nhu ben c# a
-		for(Ingredient ing : iList)
+		for(Ingredient* ing : iList)
 		{
-			if (typeid(ing).name() == "CoffeeBeans")
+			CoffeeBeans* bean = dynamic_cast<CoffeeBeans*>(ing);
+			if (bean != NULL)
 			{
-				CoffeeBeans bean = (CoffeeBeans)ing;
-				cPrice += bean.price();
+				cPrice += bean->price();
 			}
 		}
 	}
@@ -128,11 +123,10 @@ public:
 	}
 	Coffee() {};
 
-	//khong them object nhu array parameter nhu ben c# duoc ( dynamic cast)
-	Coffee(CoffeeBeans obj[]) {
-		for (auto &bean : obj) {
-			this->addIngredients(bean);
-		}
+	// Coffee(CoffeeBeans* obj[]) {
+	Coffee(CoffeeBeans* beans) 
+	{
+		iList.push_back(beans);
 	}
 	void coffee_Info() {
 		cout << "Name:" << name << endl;
@@ -141,22 +135,39 @@ public:
 	virtual void recipe() 
 	{
 		cout << "The Recipe of " << name << ":" << endl;
-		for (Ingredient ing : iList)
+		for (Ingredient* ing : iList)
 		{
-			ing.adding();
+			ing->adding();
+		}
+	}
+	~Coffee()
+	{
+		for(auto ing : iList)
+		{
+			if(ing != NULL) delete ing;
 		}
 	}
 };
 
-class CaPheSua : Coffee {
+class CaPheSua : public Coffee {
 protected:
-	//con cai nay k biet tai sao no k nhan object Robusta voi Milk du no la thua ke tu Ingredient
-	void addDefault() {
+	void addDefault() 
+	{
+		this->addIngredients(new Milk(20));
+	}
+	void addMedium()
+	{
 		this->addIngredients(new Robusta(20));
 		this->addIngredients(new Milk(20));
 	}
 public:
 	CaPheSua() : Coffee()
+	{
+		name = "Nau Da";
+		this->addMedium();
+		this->calcPrice();
+	}
+	CaPheSua(CoffeeBeans* bean):Coffee(bean) 
 	{
 		name = "Nau Da";
 		this->addDefault();
@@ -167,17 +178,24 @@ public:
 		Coffee::calcPrice();
 	}
 };
-class CaPheDen : Coffee {
+class CaPheDen : public Coffee {
 protected:
-	//cai nay cung vay ne
 	void addDefault() {
+
+	}
+	void addMedium() {
 		this->addIngredients(new Robusta(30));
 	}
 public:
 	CaPheDen() : Coffee()
 	{
 		name = "Den Da";
-		this->addDefault();
+		this->addMedium();
+		this->calcPrice();
+	}
+	CaPheDen(CoffeeBeans* bean) :Coffee(bean)
+	{
+		name = "Den Da";
 		this->calcPrice();
 	}
 	void calcPrice() {
@@ -185,15 +203,23 @@ public:
 		Coffee::calcPrice();
 	}
 };
-class BacXiu : Coffee {
+class BacXiu : public Coffee {
 protected:
-	//cai nay cung vay ne
 	void addDefault() {
-		this->addIngredients(new Robusta(20));
 		this->addIngredients(new Milk(30));
+	}
+	void addMedium() {
+		this->addIngredients(new Robusta(10));
 	}
 public:
 	BacXiu() : Coffee()
+	{
+		name = "Bac Xiu";
+		this->addDefault();
+		this->addMedium();
+		this->calcPrice();
+	}
+	BacXiu(CoffeeBeans* bean) :Coffee(bean)
 	{
 		name = "Bac Xiu";
 		this->addDefault();
@@ -207,12 +233,19 @@ public:
 class Bill {
 private:
 	double total = 0;
-	list <Coffee> cList;
+	list <Coffee*> cList;
 public:
 	double totalPrice() {
 		return total;
 	}
-	void add();
+	Bill() {}
+	Bill(list <Coffee*> coffeeList) {
+		this->cList = coffeeList;
+	}
+	void add(Coffee* coffee) 
+	{
+		cList.push_back(coffee);
+	}
 	void billInput() 
 	{
 		cout << "How many drinks you want to order:";
@@ -233,25 +266,28 @@ public:
 				cin >> bean; cout << endl;
 				if (bean == 2)
 				{
-					this->add();
+					this->add(new CaPheDen(new Columbia(30)));
 				}
-				else this->add();
+				else this->add(new CaPheDen());
+				break;
 			case 2:
 				cout << "CoffeBeans:\n 1.Robusta\t 2.Columbia" << endl;
 				cin >> bean; cout << endl;
 				if (bean == 2)
 				{
-					this->add();
+					this->add(new CaPheSua(new Columbia(20)));
 				}
-				else this->add();
+				else this->add(new CaPheSua());
+				break;
 			case 3:
 				cout << "CoffeBeans:\n 1.Robusta\t 2.Columbia" << endl;
 				cin >> bean; cout << endl;
 				if (bean == 2)
 				{
-					this->add();
+					this->add(new BacXiu(new Columbia(10)));
 				}
-				else this->add();
+				else this->add(new BacXiu());
+				break;
 			}
 			cout << "____________________" << endl;
 		}
@@ -259,66 +295,89 @@ public:
 	void billInfo()
 	{
 		cout << "BILL INFO" << "\n*******************" << endl;
-		//con bug cai nay t cung chua kiem ra cach fix 
-		for (Coffee cf : cList)
+		for (Coffee* cf : cList)
 		{
-			cf.coffee_Info();
-			total += cf.price();
+			cf->coffee_Info();
+			total += cf->price();
 			cout << "______________" << endl;
 		}
 		cout << "Total price:" << total << "VND" << endl;
 	}
 	void bill_calcPrice() {
-		//con bug cai nay t cung chua kiem ra cach fix 
-		for (Coffee cf : cList)
+		for (Coffee* cf : cList)
 		{
-			total += cf.price();
+			total += cf->price();
+		}
+	}
+	~Bill(){
+		for (auto cf : cList)
+		{
+			if(cf != NULL) delete cf;
 		}
 	}
 };
 
-static class CoffeeStore {
+class CoffeeStore {
 private:
 	static double total;
-	static list <Bill> bList;
-	static list <Bill>::iterator it;
-	static list <Coffee> cList;
+	static list <Bill*> bList;
+	static list <Coffee*> cList;
 	static int order;
 	static void add_Drinks()
 	{
-
+		cList.push_back(new BacXiu());
+		cList.push_back(new CaPheDen());
+		cList.push_back(new CaPheSua());
 	}
 public:
-	static void add_Bill() 
+	static void add_Bill(Bill* bill) 
 	{
-
+		bList.push_back(bill);
 	}
-	static void orderCoffee() {
-		
+	static void orderCoffee() 
+	{
 		cout << "Welcome to the Coffee Store!!!" << endl;
 		while (true)
 		{
-			Bill bill;
-			bill.billInput();
-			add_Bill();
+			Bill* bill = new Bill();
+			bill->billInput();
+			add_Bill(bill);
 			
 			cout << "Continue or Stop?:\n 1.Continue\t 2.Stop" << endl;
 			cin >> order;
 			cout << endl;
 			if (order == 2) {
-				bill.billInfo();
+				info();
 				break;
 			}
 		}
 	}
-	static void info() {
+	static void orderCoffee(list<Bill*> billList) 
+	{
+		bList = billList;
+	}
+	static void info()
+	{
 		cout << "Coffee Store All Bills" << "\n**************" << endl;
-		order = 1;
-		for (it = bList.begin();  it != bList.end(); it++)
+		for (Bill* bill : bList)
 		{
-			cout << "Bill #" << order << ":" << endl;
-			
-
+			bill->billInfo();
+			total += bill->totalPrice();
+			cout << "______________" << endl;
 		}
+		cout << "Total Revenue:" << total << "VND";
 	}
 };
+
+double CoffeeStore::total;
+list <Bill*> CoffeeStore::bList;
+list <Coffee*> CoffeeStore::cList;
+int CoffeeStore::order;
+
+int main() {
+	BacXiu* bx1 = new BacXiu();
+	CaPheDen* cfd = new CaPheDen();
+	CaPheSua* cfs = new CaPheSua();
+
+	CoffeeStore::orderCoffee();
+}
