@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public static class Graphic{
+public static class Graphic {
     private static List<Shape> shList = new List<Shape>();
     private static int amount;
     private static int item;
+    private static string gColor;
 
     public static void add_Shape(params Shape[] shapes) {
         foreach (var shape in shapes)
@@ -16,7 +17,7 @@ public static class Graphic{
         }
     }
     public static void graphicInput() {
-        Console.WriteLine("How many shape you want to creat:");
+        Console.WriteLine("How many shape you want to create:");
         amount = Convert.ToInt32(Console.ReadLine());
         for (int i = 0; i < amount; i++)
         {
@@ -54,10 +55,10 @@ public static class Graphic{
     }
     public static void changeColor__AllShape() {
         Console.WriteLine("Which color do you want to change into:");
-        string color = Console.ReadLine();
+        gColor = Console.ReadLine();
         foreach (var shape in shList)
         {
-            shape.colorShape = color;
+            shape.colorShape = gColor;
         }
     }
     public static void changeColor__EachShape() {
@@ -65,11 +66,21 @@ public static class Graphic{
         foreach (var shape in shList)
         {
             shape.colorChange();
-            Console.WriteLine("\n_________________");
+            Console.WriteLine("_________________\n");
         }
     }
     public static void remove_Shape() {
-        Console.WriteLine("Remove the last shape in the graphic:");
+        Console.WriteLine($"Remove the last shape in the graphic: (Which is {shList.Last().shapeName})" );
         shList.Remove(shList.Last());
+    }
+    public static void showColor__Graphic() {
+        Console.WriteLine($"Graphic color: {gColor} \n");
+        showColor__EachShape();
+    }
+    public static void showColor__EachShape() {
+        Console.WriteLine("The color of each shape in the Graphic:");
+        foreach (var shape in shList) {
+            shape.showColor();
+        }
     }
 }

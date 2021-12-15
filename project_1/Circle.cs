@@ -12,9 +12,9 @@ public class Circle : Shape
         get { return this.area;}
     }
 
-    public Circle()
+    public Circle() :base()
     {
-
+        this.name = "Circle";
     }
     public Circle(Point pt1, Point pt2, double circleRadius) :base(pt1, pt2) { 
         this.name = "Circle";

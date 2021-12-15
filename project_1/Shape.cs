@@ -14,6 +14,9 @@ public abstract class Shape {
         get { return this.color;}
         set { this.color = value;}
     }
+    public string shapeName {
+        get {return this.name;}
+    }
     public Shape() {}
     public Shape(Point pt1, Point pt2) {
         this.a = pt1;
@@ -28,7 +31,7 @@ public abstract class Shape {
     ~ Shape() {}
 
     public virtual void getInput() {
-        Console.WriteLine("\n****Get information for a " + this.name + "****");
+        Console.WriteLine($"\n****Get information for a {this.name} ****");
         Console.WriteLine("Enter the first point");
         Point pt1 = new Point();
         pt1.pointInput();
@@ -58,21 +61,20 @@ public abstract class Shape {
     }
     public virtual void showInfo() {
         this.calculate();
-        Console.WriteLine("****" + this.name + " value****");
+        Console.WriteLine($"**** {this.name} value****");
         Console.Write("Point 1:");
         this.a.pointInfo();
         Console.Write("Point 2:");
         this.b.pointInfo();
-        Console.WriteLine("Color:" + this.color);
+        Console.WriteLine($"Color: {this.color}");
     }
 
     public abstract void calculate(); 
     public void colorChange() {
-        Console.Write("Enter the color that you want to add for this" + this.name + ": ");
+        Console.Write($"Enter the color that you want to add for this {this.name}: ");
         this.color = Console.ReadLine();
     }
-    public void Move()
-        {
+    public void Move()  {
             Console.Write("Enter the new point's coordinate");
             Point pointNew = new Point();
             pointNew.pointInput();
@@ -84,5 +86,8 @@ public abstract class Shape {
             this.a = pointNew;
             this.b.X = pointNew.X - differenceX;
             this.b.Y = pointNew.Y - differenceY;
-        }
+    }
+    public void showColor() {
+        Console.WriteLine(this.name + ":" + this.color);
+    }
 }

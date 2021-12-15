@@ -9,7 +9,9 @@ public class Line:Shape {
     public double line_Lenght {
         get {return this.length;}
     }
-    public Line():base() {}
+    public Line():base() {
+        this.name = "Line";
+    }
     public Line(Point pt1, Point pt2) :base(pt1, pt2) {
         this.name = "Line";
     }

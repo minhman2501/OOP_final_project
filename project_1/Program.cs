@@ -15,19 +15,23 @@ namespace BaiTap2
             Point pt3 = new Point(9 ,5);
             Point pt4 = new Point(4 ,4);
 
-            // Rectangle rec1 = new Rectangle(pt1, pt2, 3, 4);
-            // rec1.colorShape = "Red";
-            // rec1.Move();
-            // rec1.calculate();
-            // rec1.showInfo();
-            Circle cr1 = new Circle(pt1, pt3, 3.5);
-            Triangle tr1 = new Triangle(pt2, pt1, 6.6, 5);
-            Rectangle rec1 = new Rectangle(pt4, pt3, 3.5, 4);
-            Line ln1 = new Line(pt2, pt4, "Red");
-            Graphic.add_Shape(cr1, tr1, ln1, rec1);
-            ln1.getInput(pt3, pt1, "Yellow");
+            Line ln1 = new Line(pt1, pt2, "Blue");
+            // ln1.getInput();
+            Triangle tr1 = new Triangle(pt2, pt3, "Red", 4.5, 6);
+            // tr1.getInput();
+            Rectangle rec1 = new Rectangle(pt3, pt1, "Yellow", 4, 5);
+            // rec1.getInput();
+            Circle cr1 = new Circle(pt3, pt4, "White", 6.7);
+            // cr1.getInput();
+
+            Graphic.add_Shape(ln1, tr1, rec1, cr1);
             Graphic.graphicInfo();
-            // rec1.calculate();
+            Graphic.changeColor__AllShape();
+            Graphic.showColor__Graphic();
+            Graphic.changeColor__EachShape();
+            Graphic.showColor__EachShape();
+            Graphic.remove_Shape();
+            
             
             
 

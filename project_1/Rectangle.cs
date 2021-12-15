@@ -9,7 +9,9 @@ public class Rectangle:Shape {
     private double width;
 
     private double area;
-    public Rectangle():base() {}
+    public Rectangle():base() {
+        this.name = "Rectangle";
+    }
     public Rectangle(Point pt1, Point pt2, double recLenght, double recWidth) :base(pt1, pt2) { 
         this.lenght = recLenght;
         this.width = recWidth;
